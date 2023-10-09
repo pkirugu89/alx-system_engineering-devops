@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Terminate task 4 processes without using kill and killall
-pkill -f 4-to_infinity_and_beyond
