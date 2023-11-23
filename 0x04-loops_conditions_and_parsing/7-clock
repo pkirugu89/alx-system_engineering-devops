@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Display the clock 12 hours and 59 minutes using while loop
+hrs=0
+while [ $hrs -le 12 ]
+do
+	echo "Hour: $hrs"
+	mins=1
+	while [ $mins -lt 60 ]
+	do
+	echo "$mins"
+	((mins++))
+	done
+	((hrs++))
+done
