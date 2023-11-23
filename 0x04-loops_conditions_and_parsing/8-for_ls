@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Displays the current dir in list format using for loop
+for x in *
+do
+	echo "$x" | cut -f 2- -d '-'
+done
