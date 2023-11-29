@@ -1,1 +1,1 @@
-0x06. Regular Expressions in Ruby project
+0x06. Regular Expressions in Ruby
