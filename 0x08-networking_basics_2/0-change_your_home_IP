@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Change your home IP bash script
+
+# localhost resolves to 127.0.0.1
+echo "127.0.0.1 localhost" >> /etc/hosts
+# resolve facebook.com to 8.8.8.8
+echo "8.8.8.8 facebook.com" >> /etc/hosts
+# check if Docker is running
+if [ -f "/.dockerenv" ]; then
+	echo "Running on Docker"
+else
+	echo "Not running on Docker"
+fi
