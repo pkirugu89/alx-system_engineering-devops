@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that takes a URL, sends it through OSI model and displays the body size response
+curl -sI "$1" | grep Content-Length | cut -d ' ' -f 2
+
