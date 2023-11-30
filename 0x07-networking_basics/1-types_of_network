@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bash Script that takes a URL, send GET request to the resource and displays the response body
+curl -sL "$1" -X GET
