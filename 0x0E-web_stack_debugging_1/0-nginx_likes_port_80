@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Update package list and install necessary tools
+sudo apt-get update
+sudo apt-get install -y net-tools nginx
+
+# Check current Nginx status
+sudo service nginx status
+
+# Identify processes listening on port 80
+echo "Processes listening on port 80:"
+lsof -i :80
+
+# Check Nginx configuration for any syntax errors
+nginx -t
+
+# Ensure Nginx is configured to listen on port 80
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Reload Nginx to apply changes
+sudo service nginx reload
+
+# Check Nginx status after the changes
+sudo service nginx status
+
+# Test if Nginx is now listening on port 80
+curl 0:80
+

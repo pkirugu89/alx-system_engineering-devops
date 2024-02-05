@@ -1,0 +1,72 @@
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:3 https://download.docker.com/linux/ubuntu jammy InRelease [48.8 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [26.1 kB]
+Get:7 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1109 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1326 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [207 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [268 kB]
+Get:11 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [838 kB]
+Get:12 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [160 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1043 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [235 kB]
+Fetched 5490 kB in 10s (547 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+nginx is already the newest version (1.18.0-6ubuntu14.4).
+0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2024-02-02 05:54:51 UTC; 3 days ago
+       Docs: man:nginx(8)
+    Process: 641 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 716 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 720 (nginx)
+      Tasks: 3 (limit: 1011)
+     Memory: 4.2M
+        CPU: 99ms
+     CGroup: /system.slice/nginx.service
+             ├─720 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─727 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             └─728 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Feb 02 05:54:50 ubuntu-focal systemd[1]: Starting A high performance web server and a reverse proxy server...
+Feb 02 05:54:51 ubuntu-focal systemd[1]: Started A high performance web server and a reverse proxy server.
+Processes listening on port 80:
+nginx: [alert] could not open error log file: open() "/var/log/nginx/error.log" failed (13: Permission denied)
+2024/02/05 08:21:32 [warn] 4029#4029: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:1
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+2024/02/05 08:21:32 [emerg] 4029#4029: open() "/run/nginx.pid" failed (13: Permission denied)
+nginx: configuration file /etc/nginx/nginx.conf test failed
+sed: couldn't open temporary file /etc/nginx/sites-available/sedsZOzth: Permission denied
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2024-02-02 05:54:51 UTC; 3 days ago
+       Docs: man:nginx(8)
+    Process: 641 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 716 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 4039 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 720 (nginx)
+      Tasks: 5 (limit: 1011)
+     Memory: 6.0M
+        CPU: 129ms
+     CGroup: /system.slice/nginx.service
+             ├─ 720 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─ 727 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─ 728 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─4040 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             └─4041 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Feb 02 05:54:50 ubuntu-focal systemd[1]: Starting A high performance web server and a reverse proxy server...
+Feb 02 05:54:51 ubuntu-focal systemd[1]: Started A high performance web server and a reverse proxy server.
+Feb 05 08:21:32 ubuntu-focal systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Feb 05 08:21:32 ubuntu-focal systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    13  100    13    0     0   7812      0 --:--:-- --:--:-- --:--:-- 13000
+Hello World!
