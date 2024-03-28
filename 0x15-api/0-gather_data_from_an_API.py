@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Fetches TODO list progress for 
+Fetches TODO list progress for
 a given employee ID using REST API.
 """
 
