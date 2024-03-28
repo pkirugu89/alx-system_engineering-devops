@@ -42,22 +42,15 @@ def export_employee_todo(employee_id):
     csv_fmt = f"{employee_id}.csv"
     # Write task info to CSV file
     with open(csv_fmt, mode='w', newline='') as csv_file:
-        flnames = [
-                'USER_ID',
-                'USERNAME',
-                'TASK_COMPLETED_STATUS',
-                'TASK_TITLE'
-        ]
-        wr = csv.DictWriter(csv_file, fieldnames=flnames)
-        wr.writeheader()
         for task in todos:
-            wr.writerow({
-                'USER_ID': employee_id,
-                'USERNAME': employee_name,
-                'TASK_COMPLETED_STATUS': str(task['completed']),
-                'TASK_TITLE': task['title']
-            })
-    # print(f"Data exported to {csv_file}")
+            csv_file.write(
+                    '"{}","{}","{}","{}"\n'.format(
+                        employee_id,
+                        employee_name,
+                        task.get('completed'),
+                        task.get('title')
+                    )
+            )
 
 
 if __name__ == "__main__":
