@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """
-Fetches TODO list progress for a given employee ID using REST API.
+Fetches TODO list progress for 
+a given employee ID using REST API.
 """
 
-import sys
 import requests
+import sys
 
 
 def get_employee_todo_progress(employee_id):
