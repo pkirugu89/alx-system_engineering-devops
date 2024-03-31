@@ -16,13 +16,13 @@ def get_employee_todo_progress(employee_id):
     Returns:
         status of TODO list.
     """
+    url = "https://jsonplaceholder.typicode.com/"
     # Link to the employee data from typicode website
-    url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    user = "{}/users/{}".format(url, employee_id)
     # Link to the todo list for each employee id
-    todo_url = f"\
-            https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    todo_url = "{}/todos?userId={}".format(url, employee_id)
     # GET request to fetch Employeee details
-    response = requests.get(url)
+    response = requests.get(user)
     # Extract JSON response from the above GET request
     employee_info = response.json()
     # Check if the employee id exists
@@ -45,8 +45,11 @@ def get_employee_todo_progress(employee_id):
     employee_name = employee_info['name']
 
     # Display TODO list progress in specified format
-    print(f"Employee {employee_name} is done with tasks\
-            ({all_tasks}/{num_done_tasks}):")
+    print("Employee {} is done with tasks({}/{}):".format(
+            employee_name,
+            all_tasks,
+            num_done_tasks
+            ))
     # Print titles of the completed tasks
     for task in todos:
         if task['completed']:
@@ -54,10 +57,6 @@ def get_employee_todo_progress(employee_id):
 
 
 if __name__ == "__main__":
-    # Check if the correct argument number is provided
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
-        sys.exit(1)
     # Extract employee ID from the arguments
     employee_id = int(sys.argv[1])
     # Call the function to display TODO list progress

@@ -19,7 +19,7 @@ def get_employee_todo_progress(employee_id):
         Employee completed TODO list.
     """
     # URL to fetch employee data based on employee ID
-    url = f"https://jsonplaceholder.typicode.com/"
+    url = "https://jsonplaceholder.typicode.com/"
     user = "{}/users/{}".format(url, employee_id)
     # GET request to fetch employee data
     response = requests.get(user)
