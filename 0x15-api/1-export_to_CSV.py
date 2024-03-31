@@ -20,20 +20,16 @@ def export_employee_todo(employee_id):
     # API URL
     url = "https://jsonplaceholder.typicode.com/"
     # URL Link that fetches employee data based on employee id
-    e_url = "{}/users/{}".format(url, employee_id)
+    user = "{}/users/{}".format(url, employee_id)
     # GET request to fetch employee data
-    response = requests.get(e_url)
+    response = requests.get(user)
     # Extract employee data in a JSON response
     employee_info = response.json()
-    # Check if employee data exists for a given ID
-    if "id" not in employee_info:
-        print("Employee not found")
-        return
 
     # URL link to fetch TODO list for the employee
-    todo_url = "{}/todos?userId={}".format(url, employee_id)
+    todo = "{}/todos?userId={}".format(url, employee_id)
     # GET request to fetch TODO list
-    todo_response = requests.get(todo_url)
+    todo_response = requests.get(todo)
     # Extract TODO list in a JSON response
     todos = todo_response.json()
 
