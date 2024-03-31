@@ -45,5 +45,5 @@ if __name__ == "__main__":
         all_tasks[uid] = user_tasks
 
     # Write all tasks info to a JSON file
-    with open('todo_all_employee.json', 'w') as json_file:
+    with open('todo_all_employees.json', 'w') as json_file:
         json.dump(all_tasks, json_file)
