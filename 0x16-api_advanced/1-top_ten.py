@@ -20,18 +20,18 @@ def top_ten(subreddit):
     # Define the User-Agent header
     header = {'User-Agent': 'MyBot/0.0.1'}
     # Send HTTP GET request
-    res = requests.get(url, headers=header)
+    res = requests.get(url, headers=header, allow_redirects=False)
     # Check if the requests was successful
     if res.status_code == 200:
         # Extract data from JSON response
-        data = res.json().get('data')
+        data = res.json().get('data', {}).get('children', [])
         if data:
             # Get the list of posts
-            child = data.get('children')
+            # child = data.get('children')
             # Iterate through each post
-            for post in child:
+            for post in data:
                 # Print the post title
-                print(post.get('data').get('title'))
+                print(post['data']['title'])
         else:
             # Print None if subreddit is invalid or request failed.
-            print("None")
+            print(None)

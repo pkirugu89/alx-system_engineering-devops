@@ -4,7 +4,6 @@ This script defines a function that gets the subscriber numbers for subreddit.
 """
 
 import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
