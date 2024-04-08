@@ -9,7 +9,7 @@ import requests
 import sys
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], after=None):
     """
     Recursively queries the Reddit API and returns a list containing
     hot articles for a given subreddit.
@@ -26,8 +26,12 @@ def recurse(subreddit, hot_list=[]):
         hot_list = []
     # Intialize after variable used as pagination of all hot articles
     after = None
+    # Base case: STop recursion when 'after' is 'STOP'
+    if after == 'STOP':
+        return hot_list
+
     # URL to get the top 10 posts
-    url = "https://www.reddit.com/r/{subreddit}/hot.json"
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     # Define the custom User-Agent header
     header = {'User-Agent': 'MyBot/0.0.1'}
     # set the limit for number of posts per request
@@ -36,24 +40,26 @@ def recurse(subreddit, hot_list=[]):
     res = requests.get(url,
                        headers=header,
                        params=params,
-                       allow-redirects=False)
+                       allow_redirects=False)
     # Check if the request was successful
-    if response.status_code == 200:
+    if res.status_code == 200:
         # Extract post data from res
         data = res.json().get('data', {}).get('children', [])
         if data:
             # Iterate through each post
             for post in data:
                 # Add title to the hot_list
-                hot_list.append(post['data']['title']
+                hot_list.append(post['data']['title'])
             # Check if there are more pages
-            if 'after' in res.json().get('data': {}):
+            if 'after' in res.json().get('data', {}):
                 after = res.json()['data']['after']
                 # Recursively call with updated 'after' parameter
-                return recurse(subreddit, hot_list)
+                return recurse(subreddit, hot_list, after)
             else:
                 # Returns hot_list when all pages are processed
                 return hot_list
+        else:
+            return None # if no posts are found
     else:
-    # Return None if subreddit is invalid or failed request
-    return None
+        # Return None if subreddit is invalid or failed request
+        return None
