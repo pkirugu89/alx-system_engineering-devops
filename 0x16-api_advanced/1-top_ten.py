@@ -16,11 +16,16 @@ def top_ten(subreddit):
         First 10 hot posts for a given subreddit.
     """
     # URL for getting the hot posts of the subreddit
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     # Define the User-Agent header
     header = {'User-Agent': 'MyBot/0.0.1'}
+    # Post limit
+    params = {'limit': 10}
     # Send HTTP GET request
-    res = requests.get(url, headers=header, allow_redirects=False)
+    res = requests.get(url,
+                       headers=header,
+                       params=params,
+                       allow_redirects=False)
     # Check if the requests was successful
     if res.status_code == 200:
         # Extract data from JSON response
