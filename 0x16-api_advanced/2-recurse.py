@@ -59,7 +59,7 @@ def recurse(subreddit, hot_list=[], after=None):
                 # Returns hot_list when all pages are processed
                 return hot_list
         else:
-            return None # if no posts are found
+            return None  # if no posts are found
     else:
         # Return None if subreddit is invalid or failed request
         return None
