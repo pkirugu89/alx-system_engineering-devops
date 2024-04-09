@@ -32,6 +32,6 @@ def top_ten(subreddit):
             for post in data:
                 # Print the post title
                 print(post['data']['title'])
-        else:
-            # Print None if subreddit is invalid or request failed.
-            print(None)
+    else:
+        # Print None if subreddit is invalid or request failed.
+        print(None)
