@@ -5,6 +5,7 @@ Function that prints the first 10 hot posts listed for a given subreddit.
 
 
 import requests
+import sys
 
 
 def top_ten(subreddit):
